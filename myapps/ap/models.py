@@ -10,8 +10,8 @@ class Questions(models.Model):
 
 class Category(models.Model):
     name = models.CharField("Название", max_length=255)
-    image = models.ImageField("Фотография")
-    slug = models.SlugField(max_length=70)
+    image = models.ImageField("Фотография", upload_to='photo')
+    slug = models.SlugField(max_length=70, unique=True)
 
 
 class Services(models.Model):
@@ -21,19 +21,19 @@ class Services(models.Model):
 
 class AboutUs(models.Model):
     description = models.TextField("Описание")
-    image = models.ImageField("Фотография")
+    image = models.ImageField("Фотография", upload_to='photo')
 
 
 class Team(models.Model):
     description = models.TextField("Описание")
-    image = models.ImageField("Фотография")
+    image = models.ImageField("Фотография", upload_to='photo')
 
 
 class Information(models.Model):
     name = models.TextField("ФИО")
     position = models.TextField("Должность")
     description = models.TextField("Описание")
-    image = models.ImageField("Фотография")
+    image = models.ImageField("Фотография", upload_to='photo')
 
 
 class Contacts(models.Model):
